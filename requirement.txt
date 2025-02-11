@@ -1,0 +1,11 @@
+torch
+torchvision
+transformers
+numpy
+opencv-python
+matplotlib
+tensorboard
+tqdm
+argparse
+json
+
