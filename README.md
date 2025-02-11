@@ -80,15 +80,20 @@ pip install -r requirements.txt
 
 如果需要使用 **CUDA** 加速，請確保已安裝 **NVIDIA CUDA** 驅動。
 
----
-
 ## **數據處理**
 
 ### **數據集**
 本專案使用 **HMDB51** 數據集進行測試，該數據集包含 **51** 個不同的動作類別，每個類別包含多個短影片。
 
+### **下載 HMDB51 數據集**
+
+http://serre-lab.clps.brown.edu/wp-content/uploads/2013/10/hmdb51_org.rar
+
+使用上述連結即可下載壓縮檔，接著解壓縮後就有影片
+
 ### **數據預處理**
-1. 下載 **HMDB51** 數據集，並存放於 `hmdb51/` 目錄。
+
+1. 確保 **HMDB51** 數據集已經下載，並存放於 `hmdb51/` 目錄。
 2. 運行 `preprocess.py` 來轉換 `.avi` 影片為 PyTorch Tensor，並存儲至 `preprocessed_data_pt/`。
 
 ```bash
@@ -203,6 +208,7 @@ python test_model.py --model_path checkpoints/vivit_epoch_50.pth --video_path ex
 ## **實驗結果**
 
 ```
+訓練集準確率
 🔥 Epoch 1: Avg Loss 4.0004, Accuracy 0.84%, Time 294.23 sec
 🔥 Epoch 5: Avg Loss 3.5283, Accuracy 13.11%, Time 280.34 sec ✅ 測試集: Loss 3.5354, Accuracy 13.08%
 🔥 Epoch 10: Avg Loss 3.0687, Accuracy 24.88%, Time 271.38 sec ✅ 測試集: Loss 3.1209, Accuracy 23.40%
@@ -215,10 +221,10 @@ python test_model.py --model_path checkpoints/vivit_epoch_50.pth --video_path ex
 ---
 ## **其他檔案說明**
 
-checkpoints/vivit_epoch_50.pth : 提供訓練50次的模型給使用者作測試
-hmdb51.rar : hmdb51影片的壓縮檔
-hmdb51資料夾 : hmdb51影片
-preprocess_data_pt : hmdb51影片的pt檔案並分為train和test
+- trained model/vivit_epoch_50.pth :　提供訓練50次的model4模型做測試
+- checkpoints : 模型記錄點，每5次訓練後會存模型
+- hmdb51資料夾 : 用來存放解壓縮後的hmdb51影片
+- preprocess_data_pt : hmdb51影片的pt檔案並分為train和test
 
 ---
 
@@ -230,12 +236,3 @@ preprocess_data_pt : hmdb51影片的pt檔案並分為train和test
 - **PyTorch**: [https://pytorch.org/](https://pytorch.org/)
 
 ---
-
-
-
-
-
-
-
-
-
