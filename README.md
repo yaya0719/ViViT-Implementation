@@ -7,6 +7,7 @@ VIVIT 是一個基於 **Video Vision Transformer (ViViT)** 的深度學習模型
 ## **目錄**
 
 - [簡介](#簡介)
+- [檔案說明](#檔案說明)
 - [模型介紹](#模型介紹)
 - [安裝](#安裝)
 - [數據處理](#數據處理)
@@ -30,7 +31,21 @@ ViViT (Video Vision Transformer) 是一種專為影片分類設計的 **Transfor
 - 支援多種 ViViT 變體
 
 ---
+## **檔案說明**
 
+| 檔案名稱               | 描述                           |
+|----------------------|--------------------------------|
+| **`model.py`**       | 定義 4 種 ViViT 模型架構         |
+| **`model_util.py`**  | `model.py` 的輔助函式，包括 Transformer Encoder、Attention 機制等 |
+| **`preprocess.py`**  | 影片預處理，將原始 HMDB51 影片轉換為 `.pt` 格式 |
+| **`dataset.py`**     | PyTorch `Dataset`，處理 HMDB51 的原始數據與增強數據 |
+| **`train.py`**       | 訓練 ViViT 模型，支援 AMP、梯度累積、學習率調整等 |
+| **`evaluation.py`**  | 使用測試集評估模型表現，計算 Loss 和 Accuracy |
+| **`predict.py`**     | 輸入影片，讓模型預測動作類別（支援 Top-K 結果） |
+| **`class_to_idx.json`** | 類別名稱與索引的對應表，確保標籤一致 |
+| **`requirements.txt`** | 記錄專案所需的 Python 套件清單 |
+
+---
 ## **模型介紹**
 
 ✅ **支援多種 ViViT 變體**
